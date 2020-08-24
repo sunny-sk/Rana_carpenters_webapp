@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Footer from "../components/Footer";
-import "../Landing.css";
+import "../css/Landing.css";
 import Menu from "../components/Menu";
 
 const Home = (props) => {
@@ -33,7 +33,7 @@ const Home = (props) => {
           <h3>RANA CARPENTERS</h3>
           <p>Furnish your home with us</p>
           <a
-            href="https:www.google.com"
+            href="https://play.google.com/store/apps/details?id=com.ranacarpenters.ranacarpenters"
             className="btn btn-light app-download-btn primary"
           >
             <i className="fab fa-google-play"></i> DOWNLOAD APP
@@ -46,69 +46,51 @@ const Home = (props) => {
       <br />
       <br />
       <div className="container">
+        <div className="text-center">
+          <h2>OUR SPECIALITY</h2>
+        </div>
+        <br />
         <div className="row">
-          <div className="col-sm-4">
-            <p>We have 20+ years hands on Experience.</p>
+          <div className="col-sm-4 mt-3 text-center">
+            <div className="custom-card p-3">
+              <h3 className="my-3">20+ experience</h3>
+              <p>We have more then 20+ years of experience.</p>
+            </div>
           </div>
-          <div className="col-sm-4">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Explicabo, nostrum impedit reprehenderit error dicta temporibus
-              eligendi doloremque quaerat porro nemo quasi nulla libero placeat
-              accusamus ut! Excepturi, quidem. Sint asperiores incidunt
-              assumenda autem maiores aspernatur tenetur corrupti, quibusdam,
-              velit sit cumque est necessitatibus pariatur labore impedit harum
-              nemo, magni omnis tempore at dignissimos officiis. Error corrupti
-            </p>
+          <div className="col-sm-4 mt-3 text-center">
+            <div className="custom-card p-3">
+              <h3 className="my-3">Modern Designs</h3>
+              <p>
+                we work with all modern designs that you see in other
+                furnitures. we also work with mostly all modern kitchen and
+                other related fittings
+              </p>
+            </div>
           </div>
-          <div className="col-sm-4">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Explicabo, nostrum impedit reprehenderit error dicta temporibus
-              eligendi doloremque quaerat porro nemo quasi nulla libero placeat
-              accusamus ut! Excepturi, quidem. Sint asperiores incidunt
-              assumenda autem maiores aspernatur tenetur corrupti, quibusdam,
-              velit sit cumque est necessitatibus pariatur labore impedit harum
-              nemo, magni omnis tempore at dignissimos officiis. Error corrupti
-            </p>
+          <div className="col-sm-4 mt-3 text-center">
+            <div className="custom-card p-3">
+              <h3 className="my-3">Fastest</h3>
+              <p>
+                We care about your time. we try to furnish your home in minimum
+                time span
+              </p>
+            </div>
           </div>
         </div>
       </div>
       <br />
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-4">
-            <p>We have 20+ years hands on Experience.</p>
-          </div>
-          <div className="col-sm-4">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Explicabo, nostrum impedit reprehenderit error dicta temporibus
-              eligendi doloremque quaerat porro nemo quasi nulla libero placeat
-              accusamus ut! Excepturi, quidem. Sint asperiores incidunt
-              assumenda autem maiores aspernatur tenetur corrupti, quibusdam,
-              velit sit cumque est necessitatibus pariatur labore impedit harum
-              nemo, magni omnis tempore at dignissimos officiis. Error corrupti
-            </p>
-          </div>
-          <div className="col-sm-4">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Explicabo, nostrum impedit reprehenderit error dicta temporibus
-              eligendi doloremque quaerat porro nemo quasi nulla libero placeat
-              accusamus ut! Excepturi, quidem. Sint asperiores incidunt
-              assumenda autem maiores aspernatur tenetur corrupti, quibusdam,
-              velit sit cumque est necessitatibus pariatur labore impedit harum
-              nemo, magni omnis tempore at dignissimos officiis. Error corrupti
-            </p>
-          </div>
+
+      {/* <div className="container">
+        <div className="text-center">
+          <h2>MEET OUR CREATORS</h2>
         </div>
-      </div>
+      </div> */}
+
+      <br />
+      <br />
+      <br />
+      <br />
       <Footer />
     </>
   );

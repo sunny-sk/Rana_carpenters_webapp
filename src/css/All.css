@@ -1,0 +1,16 @@
+.dropDown-container {
+  width: 150px;
+}
+.select-category {
+  border-radius: 50px !important;
+}
+.select-category:focus {
+  box-shadow: none !important;
+  border: 0.5px solid rgba(255, 1, 48, 0.75) !important;
+}
+.line-c {
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 20px;
+  border-top: 0.4px solid #c6c6c6;
+}

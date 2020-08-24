@@ -123,6 +123,9 @@ body {
 .sidebar-active {
   left: 0;
 }
+.side-links-c {
+  text-decoration: none !important;
+}
 .side-links {
   text-align: center;
   vertical-align: middle;

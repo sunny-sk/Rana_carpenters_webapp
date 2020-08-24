@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
+import { isAuthenticated } from "../helper/Api";
 const Menu = (props) => {
   const [hide, setHide] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   let location = useLocation();
-
   const registerScroll = () => {
     const navbar = document.querySelector(".navbar");
     const navbarLinks = document.querySelectorAll(".nav-link");
@@ -103,6 +103,7 @@ const Menu = (props) => {
                   style={{
                     fontSize: "28px",
                     verticalAlign: "middle",
+                    color: "white",
                   }}
                 ></i>
               </span>
@@ -161,17 +162,13 @@ const Menu = (props) => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto text-center">
-              {/* <NavLink to="/designs" className="nav-link">
-                Designs
-                <span className="badge badge-primary">4</span>
-              </NavLink> */}
               <li className="nav-item ">
                 <NavLink to="/designs" className="nav-link">
                   Design
                 </NavLink>
               </li>
               <li className="nav-item ">
-                <NavLink to="/profile" className="nav-link">
+                <NavLink to="/blogs" className="nav-link">
                   Blogs
                 </NavLink>
               </li>
@@ -202,29 +199,24 @@ const Menu = (props) => {
                   // data-target="#navbarSupportedContent"
                 ></li>
 
-                {!props.loggedIn && (
+                {!isAuthenticated() && (
                   <>
-                    {/* <li className="nav-item ">
-                      <NavLink to="/login" className="nav-link">
-                        Login
+                    <li className="nav-item ">
+                      <NavLink to="/dashboard/admin" className="nav-link">
+                        Dashboard
                       </NavLink>
-                    </li> */}
+                    </li>
                   </>
                 )}
 
-                {props.loggedIn && (
+                {isAuthenticated() && (
                   <>
-                    <li className="nav-item ">
-                      <NavLink to="/profile" className="nav-link">
-                        <i className="fas fa-user"></i>
-                      </NavLink>
-                    </li>
                     <li
                       className="nav-item "
                       data-toggle="modal"
                       data-target="#exampleModal"
                     >
-                      <a href="https://google.com" className="nav-link">
+                      <a href="#" className="nav-link">
                         Signout
                       </a>
                     </li>
@@ -290,29 +282,38 @@ const Menu = (props) => {
           <br />
           <br />
           <br />
-          {/* <div className="side-links ">
-            <span>
-              <b>PlayLists</b>
-            </span>
-          </div> */}
+
           <hr />
-          {/* {playLists.map((playList, index) => {
-            return (
-              <div
-                onClick={() => {
-                  props.onSetPlayListId(playList.playListitemId);
-                  // console.log(playList);
-                }}
-                key={index}
-                className="side-links my-1"
-              >
-                <span>{playList.title}</span>
-                <span className=" ml-1 badge badge-primary">
-                  {playList.playListItemNo}
-                </span>
-              </div>
-            );
-          })} */}
+          <NavLink className="side-links-c" to="/dashboard/admin">
+            <div className="side-links my-1">
+              <span>Dashboard</span>
+            </div>
+          </NavLink>
+          <NavLink className="side-links-c" to="/dashboard/admin/feedbacks">
+            <div className="side-links my-1">
+              <span>Feedbacks</span>
+            </div>
+          </NavLink>
+          <NavLink className="side-links-c" to="/dashboard/admin/categories">
+            <div className="side-links my-1">
+              <span>Categories</span>
+            </div>
+          </NavLink>
+          <NavLink className="side-links-c" to="/dashboard/admin/inventories">
+            <div className="side-links my-1">
+              <span>Inventories</span>
+            </div>
+          </NavLink>
+          <NavLink className="side-links-c" to="/dashboard/admin/designs">
+            <div className="side-links my-1">
+              <span>Designs</span>
+            </div>
+          </NavLink>
+          <NavLink className="side-links-c" to="/dashboard/admin/details">
+            <div className="side-links my-1">
+              <span>Details</span>
+            </div>
+          </NavLink>
           <br />
           <br />
           <br />

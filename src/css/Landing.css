@@ -1,7 +1,7 @@
 /* primary #e30029  rgb(227, 0, 41)*/
 
 .landing {
-  background-image: url("./assets/landing_1_2.jpg");
+  background-image: url("../assets/landing_1_2.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -111,6 +111,20 @@
 }
 .not_display {
   display: none;
+}
+
+/* cards */
+.custom-card {
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px -2px #2b3252;
+  padding: 5px;
+  height: 200px;
+}
+.custom-card h3 {
+  color: rgba(245, 57, 91, 0.75);
+}
+.custom-card p {
+  /* color: rgba(245, 57, 91, 0.75); */
 }
 
 /* //media queries */
