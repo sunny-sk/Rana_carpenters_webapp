@@ -7,7 +7,12 @@ const ManageInventories = (props) => {
       <Menu signout={true} loggedIn={false} {...props} leftMenu={true} />
       <br />
       <div className="page">
-        <p className="lead">manage Inventories</p>
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-8"></div>
+            <div className="col-sm-4"></div>
+          </div>
+        </div>
       </div>
     </>
   );

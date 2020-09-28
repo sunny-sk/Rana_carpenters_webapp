@@ -45,12 +45,8 @@ const Menu = (props) => {
         }
       } else {
         console.log("down:", currentScrollPos);
-        // if (currentScrollPos > 50) {
         navbar.classList.remove("navbar-down-slide");
         navbar.classList.add("navbar-up-slide");
-        // }
-        // console.log("down");
-        // document.getElementById("navbar").style.top = "-50px";
       }
       prevScrollpos = currentScrollPos;
     };
@@ -199,7 +195,7 @@ const Menu = (props) => {
                   // data-target="#navbarSupportedContent"
                 ></li>
 
-                {!isAuthenticated() && (
+                {isAuthenticated() && (
                   <>
                     <li className="nav-item ">
                       <NavLink to="/dashboard/admin" className="nav-link">

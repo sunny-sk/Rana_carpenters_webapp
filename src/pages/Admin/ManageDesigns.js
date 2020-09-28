@@ -6,7 +6,7 @@ const ManageDesigns = (props) => {
       <Menu signout={true} loggedIn={false} {...props} leftMenu={true} />
       <br />
       <div className="page">
-        <p className="lead">ManageDesigns Page</p>
+        <div className="container"></div>
       </div>
     </>
   );

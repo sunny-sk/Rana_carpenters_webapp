@@ -56,7 +56,7 @@ const Routes = (props) => {
             exact
             component={ManageDesigns}
           />
-          <AdminRoute component={PageNotFound} />
+          <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>
     </>

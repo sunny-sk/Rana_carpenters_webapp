@@ -10,7 +10,7 @@ const MainLoader = () => {
   }, [isLading]);
   return (
     <>
-      {isLading ? (
+      {/* {isLading ? (
         <div className="main text-center display">
           <object
             type="image/svg+xml"
@@ -24,10 +24,10 @@ const MainLoader = () => {
           </object>
         </div>
       ) : (
-        <>
-          <Routes />
-        </>
-      )}
+        <> */}
+      <Routes />
+      {/* </>
+      )} */}
     </>
   );
 };
