@@ -99,3 +99,32 @@ export const getAllCategories = async () => {
     throw new Error("server error");
   }
 };
+
+export const getAllProducts = async () => {
+  try {
+    let result = await fetch(Url._getAllProducts, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return result.json();
+  } catch (error) {
+    console.log(error);
+    throw new Error("server error");
+  }
+};
+export const getAllInventories = async () => {
+  try {
+    let result = await fetch(Url._getAllInventories, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return result.json();
+  } catch (error) {
+    console.log(error);
+    throw new Error("server error");
+  }
+};

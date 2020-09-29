@@ -14,3 +14,47 @@
   margin-top: 20px;
   border-top: 0.4px solid #c6c6c6;
 }
+
+.design-prod-image {
+  width: 100%;
+  text-align: center;
+}
+.design-prod-image img {
+  height: 200px;
+  width: 200px;
+  border-radius: 6px;
+}
+
+.fav-container {
+  cursor: pointer;
+  display: inline-block;
+}
+.fav-container p {
+  color: red;
+  font-size: 20px;
+}
+
+.design-title,
+.design-description,
+.design-title {
+  /* margin: 0px !important; */
+}
+
+.design-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 0rem !important;
+}
+
+.design-date {
+  font-size: 12px;
+  margin-bottom: 1rem !important;
+}
+
+.design-description {
+  font-size: 16px;
+}
+
+.prod-container {
+  cursor: pointer;
+}

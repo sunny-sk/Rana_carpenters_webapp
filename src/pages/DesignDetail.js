@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import { getProductDetails } from "../helper/Api";
 import Menu from "../components/Menu";
+import Loader from "../components/Loader";
 const BASE_IMG_URL =
   "https://res.cloudinary.com/smarty123/image/upload/ar_1:1,c_fill,g_auto,e_art:hokusai/v1586622577";
 function DesignDetail(props) {
@@ -67,12 +68,7 @@ function DesignDetail(props) {
             <br />
             <br />
             <br />
-            <div className="container text-center">
-              <div className="lds-ripple">
-                <div></div>
-                <div></div>
-              </div>
-            </div>
+            <Loader />
           </>
         ) : (
           <>
