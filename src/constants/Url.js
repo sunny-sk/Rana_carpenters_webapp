@@ -1,5 +1,5 @@
-// const BASE_URL = "https://ranacarpenters.herokuapp.com";
-const BASE_URL = "http://localhost:4100";
+const BASE_URL = "https://ranacarpenters.herokuapp.com";
+// const BASE_URL = "http://localhost:4100";
 
 export default {
   _noImageUrl:
