@@ -4,6 +4,9 @@ import Menu from "../components/Menu";
 import { getAllCategories, getAllProducts } from "../helper/Api";
 import Url from "../constants/Url";
 import Loader from "../components/Loader";
+import Card from "../components/Card";
+import Select from "../components/Select";
+import { filter } from "../helper/util";
 const Designs = (props) => {
   const [categories, setCategories] = useState([
     {
@@ -51,7 +54,7 @@ const Designs = (props) => {
     }
   };
 
-  const loadProducts = async () => {
+  const loadDesigns = async () => {
     try {
       setIsLoading(true);
       const response = await getAllProducts();
@@ -64,13 +67,8 @@ const Designs = (props) => {
   };
 
   const filterCategory = (filterName) => {
-    console.log(filterName);
     setActivatedCategory(filterName === "All" ? "All" : filterName);
-    if (filterName === "All") setProductListingsTemp([...products]);
-    else
-      setProductListingsTemp([
-        ...products.filter((e) => e.category === filterName),
-      ]);
+    setProductListingsTemp(filter(products, filterName, "category", "All"));
   };
 
   const loadFavouries = async () => {
@@ -85,7 +83,7 @@ const Designs = (props) => {
 
   useEffect(() => {
     init();
-    loadProducts();
+    loadDesigns();
     loadFavouries();
   }, []);
 
@@ -98,19 +96,25 @@ const Designs = (props) => {
         <div className="container">
           <div className="dropDown-container">
             <div className="form-group select-category-c">
-              <label htmlFor="exampleFormControlSelect1">Select category</label>
-              <select
-                value={activatedCategory}
+              <Select
+                defaultValue={activatedCategory}
+                label="Select category"
+                options={categories}
                 onChange={(e) => {
-                  filterCategory(e.target.value);
+                  filterCategory(e);
                 }}
-                className="form-control select-category"
-                id="exampleFormControlSelect1"
-              >
-                {categories.map((category, i) => (
-                  <option key={i}>{category.name}</option>
-                ))}
-              </select>
+                optionName="name"
+              />
+            </div>
+          </div>
+          <div className="dropDown-container">
+            <div className="form-group select-category-c">
+              <Select
+                label="Sory By"
+                options={[{ name: "Date" }, { name: "name" }]}
+                onChange={(e) => {}}
+                optionName="name"
+              />
             </div>
           </div>
         </div>
@@ -127,58 +131,49 @@ const Designs = (props) => {
               {productListingsTemp.length > 0 ? (
                 <>
                   {productListingsTemp.map((prod, i) => (
-                    <div
-                      onClick={(e) => {
-                        if (
-                          e.target.className === "far fa-heart" ||
-                          e.target.className === "fas fa-heart"
-                        ) {
-                          //do nothing
-                        } else {
-                          props.history.push(`/designs/${prod._id}`);
-                        }
-                      }}
-                      className="row mt-1 prod-container"
+                    <Card
+                      like
+                      prod={prod}
                       key={i}
-                    >
-                      <div className="col-sm-4">
-                        <div className="design-prod-image">
-                          <img src={Url._imageBase + prod.imgUrl} />
-                        </div>
-                      </div>
-                      <div className="col-sm-8">
-                        <div className="row mt-3">
-                          <div className="col-sm-8">
-                            <p className="design-title">{prod.title}</p>
-                            <p className="design-date">
-                              {new Date(prod.createdAt).toDateString()}
-                            </p>
-                            <p className="design-description">
-                              {prod.description}
-                            </p>
-                          </div>
-                          <div className="col-sm-4">
-                            <div
-                              onClick={() => {
-                                onAddToFavourites(prod);
-                              }}
-                              className="fav-container"
-                            >
-                              <p>
-                                {isFavourite(prod._id) ? (
-                                  <i className="fas fa-heart"></i>
-                                ) : (
-                                  <i className="far fa-heart"></i>
-                                )}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="line-c"></div>
-                      <br />
-                    </div>
+                      data={{
+                        title: prod.title,
+                        description: prod.description,
+                        date: new Date(prod.createdAt).toDateString(),
+                        imgUrl: Url._imageBase + prod.imgUrl,
+                      }}
+                      isFavourite={isFavourite}
+                      onAddToFavourites={() => {
+                        onAddToFavourites(prod._id);
+                      }}
+                      onCardClick={() => {
+                        props.history.push(`/designs/${prod._id}`);
+                      }}
+                    />
                   ))}
+                  <br />
+                  <br />
+                  <nav aria-label="Page navigation example">
+                    <br />
+                    <br />
+                    <ul classname="pagination justify-content-center">
+                      <li classname="page-item disabled">
+                        <a classname="page-link" href="#" tabindex="-1">
+                          Previous
+                        </a>
+                      </li>
+                      <li classname="page-item">
+                        <a classname="page-link" href="#">
+                          1
+                        </a>
+                      </li>
+
+                      <li classname="page-item">
+                        <a classname="page-link" href="#">
+                          Next
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
                 </>
               ) : (
                 <>

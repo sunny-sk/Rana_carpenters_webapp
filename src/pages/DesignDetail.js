@@ -3,8 +3,9 @@ import "../App.css";
 import { getProductDetails } from "../helper/Api";
 import Menu from "../components/Menu";
 import Loader from "../components/Loader";
-const BASE_IMG_URL =
-  "https://res.cloudinary.com/smarty123/image/upload/ar_1:1,c_fill,g_auto,e_art:hokusai/v1586622577";
+import Url from '../constants/Url'
+const BASE_IMG_URL = Url._imageBase;
+ 
 function DesignDetail(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [details, setDetails] = useState({

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { isAuthenticated } from "../helper/Api";
+import { isAuthenticated, signOut } from "../helper/Api";
+import Modal from "./Modal";
 const Menu = (props) => {
   const [hide, setHide] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -195,6 +196,15 @@ const Menu = (props) => {
                   // data-target="#navbarSupportedContent"
                 ></li>
 
+                {!isAuthenticated() && (
+                  <>
+                    <li className="nav-item ">
+                      <NavLink to="/dashboard/admin" className="nav-link">
+                        Login
+                      </NavLink>
+                    </li>
+                  </>
+                )}
                 {isAuthenticated() && (
                   <>
                     <li className="nav-item ">
@@ -226,46 +236,18 @@ const Menu = (props) => {
 
       {/* //signout modal */}
 
-      <div
-        className="modal fade signout-modal-overlay"
+      <Modal
         id="exampleModal"
-        tabIndex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog" role="document">
-          <div className="modal-content signout-modal-content">
-            <div>
-              <div className="container text-center">
-                <p className="lead mt-3">
-                  <b>Are you sure?</b>
-                </p>
-              </div>
-            </div>
-            <div className="modal-footer signout-modal-footer">
-              <button
-                type="button"
-                className="btn btn-danger btn-c"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button
-                type="button"
-                data-dismiss="modal"
-                onClick={() => {
-                  props.signout();
-                  // props.history.replace("/");
-                }}
-                className="btn btn-primary btn-c modal-signout-btn"
-              >
-                Signout
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+        ask="Are you sure?"
+        yes="Signout"
+        cancel="Close"
+        onYes={() => {
+          //add signout here
+          signOut(() => {
+            props.history.replace("/");
+          });
+        }}
+      />
 
       {/* left menu */}
 

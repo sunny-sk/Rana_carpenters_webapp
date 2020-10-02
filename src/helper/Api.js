@@ -128,3 +128,35 @@ export const getAllInventories = async () => {
     throw new Error("server error");
   }
 };
+
+export const createCategory = async (data) => {
+  try {
+    const token = isAuthenticated().token;
+    let result = await fetch(`${Url._createCategory}`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "x-auth-token": token,
+      },
+      body: JSON.stringify({ ...data }),
+    });
+    return result.json();
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+export const deleteCategory = async (id) => {
+  try {
+    const token = isAuthenticated().token;
+    let result = await fetch(`${Url._deleteCategory}/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        "x-auth-token": token,
+      },
+    });
+    return result.json();
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
