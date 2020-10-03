@@ -5,7 +5,7 @@ const Card = ({
   prod,
   isFavourite,
   onCardClick,
-  onAddToFavourites,
+  AddToFavourites,
   data,
 }) => {
   return (
@@ -25,7 +25,7 @@ const Card = ({
       >
         <div className="col-sm-4 ">
           <div className="design-prod-image">
-            <img src={data.imgUrl} />
+            <img alt={data.title} src={data.imgUrl} />
           </div>
         </div>
         <div className="col-md-8 col-sm-12 ">
@@ -39,7 +39,7 @@ const Card = ({
               <div className="col-sm-4">
                 <div
                   onClick={() => {
-                    onAddToFavourites();
+                    AddToFavourites();
                   }}
                   className="fav-container"
                 >

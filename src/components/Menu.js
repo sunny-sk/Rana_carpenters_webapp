@@ -222,7 +222,7 @@ const Menu = (props) => {
                       data-toggle="modal"
                       data-target="#exampleModal"
                     >
-                      <a href="#" className="nav-link">
+                      <a href="#!" className="nav-link">
                         Signout
                       </a>
                     </li>

@@ -9,7 +9,7 @@ import Loader from "../../components/Loader";
 import Modal from "../../components/Modal";
 const ManageCategories = (props) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [isLoading1, setIsLoading2] = useState(false);
+
   const [allCategories, setAllCategories] = useState([]);
   const [mode, setMode] = useState("create");
   const [category, setCategory] = useState("");
@@ -33,9 +33,8 @@ const ManageCategories = (props) => {
 
   const onCreateCategory = async () => {
     try {
-      setIsLoading2(true);
       const result = await createCategory({ name: category });
-      setIsLoading2(false);
+
       if (result.success) {
         setAllCategories([result.category, ...allCategories]);
         setCategory("");
@@ -47,9 +46,8 @@ const ManageCategories = (props) => {
   };
   const onDeleteCategory = async () => {
     try {
-      setIsLoading2(true);
       const result = await deleteCategory(id);
-      setIsLoading2(false);
+
       console.log(result);
       if (result.success) {
         setCategory("");

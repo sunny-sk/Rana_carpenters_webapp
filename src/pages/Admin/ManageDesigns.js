@@ -114,6 +114,7 @@ const ManageDesigns = (props) => {
                       selectedProduct.more_images.map((e, i) => (
                         <div className="col-sm-4 mb-4" key={i}>
                           <img
+                            alt={e.title}
                             style={{ borderRadius: "6px" }}
                             className="img-fluid"
                             src={Url._imageBase + e.imgUrl}

@@ -132,7 +132,7 @@ const Designs = (props) => {
                 <>
                   {productListingsTemp.map((prod, i) => (
                     <Card
-                      like
+                      like={true}
                       prod={prod}
                       key={i}
                       data={{
@@ -142,8 +142,8 @@ const Designs = (props) => {
                         imgUrl: Url._imageBase + prod.imgUrl,
                       }}
                       isFavourite={isFavourite}
-                      onAddToFavourites={() => {
-                        onAddToFavourites(prod._id);
+                      AddToFavourites={() => {
+                        onAddToFavourites(prod);
                       }}
                       onCardClick={() => {
                         props.history.push(`/designs/${prod._id}`);
@@ -155,20 +155,20 @@ const Designs = (props) => {
                   <nav aria-label="Page navigation example">
                     <br />
                     <br />
-                    <ul classname="pagination justify-content-center">
-                      <li classname="page-item disabled">
-                        <a classname="page-link" href="#" tabindex="-1">
+                    <ul className="pagination justify-content-center">
+                      <li className="page-item disabled">
+                        <a className="page-link" href="#!" tabIndex="-1">
                           Previous
                         </a>
                       </li>
-                      <li classname="page-item">
-                        <a classname="page-link" href="#">
+                      <li className="page-item">
+                        <a className="page-link" href="#!">
                           1
                         </a>
                       </li>
 
-                      <li classname="page-item">
-                        <a classname="page-link" href="#">
+                      <li className="page-item">
+                        <a className="page-link" href="#!">
                           Next
                         </a>
                       </li>
