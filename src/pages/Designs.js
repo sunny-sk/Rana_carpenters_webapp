@@ -139,7 +139,9 @@ const Designs = (props) => {
                         title: prod.title,
                         description: prod.description,
                         date: new Date(prod.createdAt).toDateString(),
-                        imgUrl: Url._imageBase + prod.imgUrl,
+                        imgUrl: prod.imgUrl
+                          ? Url._imageBase + prod.imgUrl
+                          : Url._noImageUrl,
                       }}
                       isFavourite={isFavourite}
                       AddToFavourites={() => {
