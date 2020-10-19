@@ -160,3 +160,49 @@ export const deleteCategory = async (id) => {
     throw new Error(error.message);
   }
 };
+
+export const getAllProductInventories = async () => {
+  try {
+    let result = await fetch(`${Url._loadProductInventories}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    return result.json();
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+export const deleteProductInventory = async (id) => {
+  try {
+    const token = isAuthenticated().token;
+    let result = await fetch(`${Url._deleteProductInventory + "/" + id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        "x-auth-token": token,
+      },
+    });
+    return result.json();
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+export const createProduct = async (data) => {
+  try {
+    const token = isAuthenticated().token;
+    let result = await fetch(`${Url._createProduct}`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "x-auth-token": token,
+      },
+      body: JSON.stringify({ ...data }),
+    });
+    return result.json();
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};

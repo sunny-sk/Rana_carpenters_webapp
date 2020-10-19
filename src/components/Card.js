@@ -7,6 +7,7 @@ const Card = ({
   onCardClick,
   AddToFavourites,
   data,
+  admin,
 }) => {
   return (
     <div className="container ">
@@ -25,7 +26,7 @@ const Card = ({
       >
         <div className="col-sm-4 ">
           <div className="design-prod-image">
-            <img alt={data.title} src={data.imgUrl} />
+            <img alt={prod.title} src={data.imgUrl} />
           </div>
         </div>
         <div className="col-md-8 col-sm-12 ">
@@ -33,7 +34,16 @@ const Card = ({
             <div className="col-sm-8">
               <p className="design-title">{data.title}</p>
               <p className="design-date">{data.date}</p>
-              <p className="design-description">{data.description}</p>
+              <p className="design-description">{prod.description}</p>
+              {admin && (
+                <>
+                  {prod.more_images.length > 0 && (
+                    <span className="design-description badge badge-light">
+                      More : {prod.more_images.length}
+                    </span>
+                  )}
+                </>
+              )}
             </div>
             {like && (
               <div className="col-sm-4">

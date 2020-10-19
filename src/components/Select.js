@@ -15,7 +15,7 @@ const Select = ({
         onChange={(e) => {
           onChange(e.target.value);
         }}
-        className="form-control select-category"
+        className="form-control select-category shadow-sm"
         id="selectCategories"
       >
         {options.map((category, i) => (

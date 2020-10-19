@@ -7,7 +7,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Designs from "./pages/Designs";
 import ManageFeedbacks from "./pages/Admin/ManageFeedbacks";
 import ManageInventories from "./pages/Admin/ManageInventories";
-import ManageDesigns from "./pages/Admin/ManageDesigns";
+import ManageDesigns from "./pages/Admin/ManageDesigns/Index";
 import ManageDetails from "./pages/Admin/ManageDetails";
 import AdminMainPage from "./pages/Admin/AdminMainPage";
 import ManageCategories from "./pages/Admin/ManageCategories";

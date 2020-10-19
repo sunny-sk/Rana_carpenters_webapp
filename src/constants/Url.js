@@ -1,5 +1,5 @@
-const BASE_URL = "https://ranacarpenters.herokuapp.com";
-// const BASE_URL = "http://localhost:4100";
+// const BASE_URL = "https://ranacarpenters.herokuapp.com";
+const BASE_URL = "http://localhost:4100";
 
 export default {
   _noImageUrl:
@@ -15,4 +15,9 @@ export default {
   _getAllInventories: BASE_URL + "/api/v1/inventory",
   _createCategory: BASE_URL + "/api/v1/category",
   _deleteCategory: BASE_URL + "/api/v1/category",
+  _loadProductInventories: BASE_URL + "/api/v1/products/productInventories",
+  _uploadImageToProductInventories:
+    BASE_URL + "/api/v1/products/addSingleProductInventory",
+  _deleteProductInventory: BASE_URL + "/api/v1/products/productInventory",
+  _createProduct: BASE_URL + "/api/v1/products",
 };

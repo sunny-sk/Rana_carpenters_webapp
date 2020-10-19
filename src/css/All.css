@@ -60,3 +60,32 @@
 .prod-container {
   cursor: pointer;
 }
+
+.modal-dialog-full {
+  max-width: 90% !important;
+}
+
+.modal-dialog-auto {
+  max-width: auto;
+}
+
+.upload-progress {
+  height: 5px !important;
+}
+
+.delete-con-productInve {
+  position: absolute;
+  right: 11px;
+  top: -9px;
+  background-color: #f5f5f5;
+  padding: 2px 7px;
+  border-radius: 50px;
+
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.delete-con-productInve:hover {
+  background-color: #f55;
+  color: #f5f5f5;
+}
