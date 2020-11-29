@@ -19,13 +19,7 @@ const Routes = (props) => {
     <>
       <BrowserRouter>
         <Switch>
-          <Route
-            path="/"
-            exact
-            component={() => {
-              return <Home {...props} />;
-            }}
-          />
+          <Route path="/" exact component={Home} />
           <Route path="/designs" exact component={Designs} />
           <Route path="/policy" exact component={Policy} />
           <Route path="/designs/:designId" exact component={DesignDetail} />
