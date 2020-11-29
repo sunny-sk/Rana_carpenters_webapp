@@ -20,4 +20,8 @@ export default {
     BASE_URL + "/api/v1/products/addSingleProductInventory",
   _deleteProductInventory: BASE_URL + "/api/v1/products/productInventory",
   _createProduct: BASE_URL + "/api/v1/products",
+  _uploadMultipleInventories:
+    BASE_URL + "/api/v1/inventory/addMultipleInventory",
+  _uploadSingleInventories: BASE_URL + "/api/v1/inventory/addSingleInventory",
+  _deleteInventoey: BASE_URL + "/api/v1/inventory/",
 };

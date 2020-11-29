@@ -17,7 +17,7 @@ const Menu = (props) => {
     window.onscroll = function () {
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
-        console.log("up");
+        // console.log("up");
         navbar.classList.remove("navbar-up-slide");
         navbar.classList.add("navbar-down-slide");
 
@@ -45,7 +45,7 @@ const Menu = (props) => {
           }
         }
       } else {
-        console.log("down:", currentScrollPos);
+        // console.log("down:", currentScrollPos);
         navbar.classList.remove("navbar-down-slide");
         navbar.classList.add("navbar-up-slide");
       }

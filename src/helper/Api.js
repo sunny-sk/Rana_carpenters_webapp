@@ -114,20 +114,6 @@ export const getAllProducts = async () => {
     throw new Error("server error");
   }
 };
-export const getAllInventories = async () => {
-  try {
-    let result = await fetch(Url._getAllInventories, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    return result.json();
-  } catch (error) {
-    console.log(error);
-    throw new Error("server error");
-  }
-};
 
 export const createCategory = async (data) => {
   try {
@@ -174,10 +160,41 @@ export const getAllProductInventories = async () => {
     throw new Error(error.message);
   }
 };
+
+export const getAllInventories = async () => {
+  try {
+    let result = await fetch(Url._getAllInventories, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return result.json();
+  } catch (error) {
+    console.log(error);
+    throw new Error("server error");
+  }
+};
+
 export const deleteProductInventory = async (id) => {
   try {
     const token = isAuthenticated().token;
     let result = await fetch(`${Url._deleteProductInventory + "/" + id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        "x-auth-token": token,
+      },
+    });
+    return result.json();
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+export const deleteInventory = async (id) => {
+  try {
+    const token = isAuthenticated().token;
+    let result = await fetch(`${Url._deleteInventoey + id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
