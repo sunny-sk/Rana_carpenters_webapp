@@ -1,11 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, useEffect } from "react";
 import Footer from "../components/Footer";
 import "../css/Landing.css";
 import Menu from "../components/Menu";
 
-const Home = (props) => {
+let landingPageImageInterval;
+const Home = () => {
   const landing = useRef(null);
-  let landingPageImageInterval = undefined;
   const onChangingBackImage = () => {
     const images = [
       require("../assets/landing_2_1.jpg"),
@@ -21,12 +22,13 @@ const Home = (props) => {
   };
 
   useEffect(() => {
+    console.log("refreshed");
     onChangingBackImage();
     return () => clearInterval(landingPageImageInterval);
-  }, [landingPageImageInterval, onChangingBackImage]);
+  }, []);
   return (
     <>
-      <Menu signout={true} loggedIn={false} {...props} leftMenu={false} />
+      <Menu leftMenu={false} />
       <div ref={landing} className="landing">
         <div className="landing-overlay"></div>
         <div className="landing-content">
